@@ -1,0 +1,19 @@
+{
+  "name": "bleex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bleno": "^0.5.0",
+    "colors": "^1.4.0",
+    "colors.js": "^1.2.4",
+    "crc": "^4.3.2",
+    "noble": "^1.9.1"
+  }
+}

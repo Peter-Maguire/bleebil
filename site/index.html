@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bleex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        #info {width: 50%;}
+
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            font-family: sans-serif;
+        }
+
+        #controls {
+            width: 50%;
+            text-align: center;
+        }
+
+        #controls button {
+            padding: 5px 10px;
+            margin: 3px;
+            width: 60px;
+        }
+
+        #controls span {
+            font-weight: bold;
+        }
+
+        #customCommand {
+            flex-grow: 1;
+        }
+
+        #customCommand input {
+            font-family: monospace;
+            margin: 5px;
+        }
+
+        #customCommand label, #customCommand div {
+            font-weight: bold;
+        }
+
+        #manualControl input {
+            width: 32px;
+        }
+
+        #recorder {
+            width: 100%;
+        }
+
+        #commands {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="info">
+    <button id="connect">Connect</button>
+    <table>
+        <tr><td>Pos</td><td id="position"></td></tr>
+        <tr><td>Mode</td><td id="mode"></td></tr>
+        <tr><td>Version</td><td id="version"></td></tr>
+        <tr><td>Battery</td><td id="battery"></td></tr>
+        <tr><td>Camera</td><td id="camera"></td></tr>
+    </table>
+</div>
+<div id="controls">
+    <div id="panControls">
+        <span>Pan</span>
+        <button id="panForward">Left</button>
+        <button id="panReverse">Right</button>
+    </div>
+    <div id="tiltControls">
+        <span>Tilt</span>
+        <button id="tiltReverse">Up</button>
+        <button id="tiltForward">Down</button>
+    </div>
+    <div id="rollControls">
+        <span>Roll</span>
+        <button id="rollForward">Left</button>
+        <button id="rollReverse">Right</button>
+    </div>
+    <div id="manualControl">
+        <label for="pan">Pan</label>&nbsp;<input id="pan" type="number" min="0" max="360">
+        <label for="tilt">Tilt</label>&nbsp;<input id="tilt" type="number" min="0" max="360">
+        <label for="roll">Roll</label>&nbsp;<input id="roll" type="number" min="0" max="360">
+        <button id="setPos">Set</button>
+    </div>
+</div>
+<div id="commands">
+    <div id="modeControls">
+        <button onclick="setMode('F')">F</button>
+        <button onclick="setMode('L')">L</button>
+        <button onclick="setMode('PF')">PF</button>
+        <button onclick="setMode('GO')">GO</button>
+    </div>
+    <div id="miscControls">
+        <button onclick="setCenterPoint()">Reset Position</button>
+        <button onclick="pressButton()">Take Photo</button>
+    </div>
+</div>
+<div id="customCommand">
+    <div>Send custom command</div>
+    <label for="command">Command</label>&nbsp;
+    <span id="commandName"></span>&nbsp;
+    <input id="command" type="text" maxlength="2" minlength="2">
+    <label for="data1">Data</label>
+    <input id="data1" type="text" maxlength="2" minlength="2" value="00">
+    <input id="data2" type="text" maxlength="2" minlength="2" value="00">
+    <input id="data3" type="text" maxlength="2" minlength="2" value="00">
+    <div>
+        <button id="sendCommand">Send Command</button>
+        <button id="getValue">Get Value</button>
+    </div>
+    <div id="commandResponse"></div>
+</div>
+<div id="recorder">
+    <button id="record">Record Pos</button>
+    <button id="playback">Playback</button>
+    <button id="clear">Clear</button>
+    <table id="recordedPositions">
+
+    </table>
+</div>
+<script src="./constants.js"></script>
+<script src="./utils.js"></script>
+<script src="./gimbal.js"></script>
+<script src="./index.js"></script>
+</body>
+</html>
